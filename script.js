@@ -35,15 +35,15 @@ const rate = document.querySelector('#rate');
 const hoursOutput = document.querySelector('#hours-output');
 const rateOutput = document.querySelector('#rate-output');
 const annualOutput = document.querySelector('#annual-output');
-const money = new Intl.NumberFormat('es-CO');
+const money = new Intl.NumberFormat('es-PE');
 
 function updateCalculator() {
   const weeklyHours = Number(hours.value);
   const hourlyRate = Number(rate.value);
   const annual = weeklyHours * hourlyRate * 52;
   hoursOutput.textContent = `${weeklyHours} h`;
-  rateOutput.textContent = `$${money.format(hourlyRate)}`;
-  annualOutput.innerHTML = `$${money.format(annual)} <small>COP</small>`;
+  rateOutput.textContent = `S/ ${money.format(hourlyRate)}`;
+  annualOutput.innerHTML = `S/ ${money.format(annual)} <small>PEN</small>`;
 }
 [hours, rate].forEach((input) => input.addEventListener('input', updateCalculator));
 updateCalculator();
